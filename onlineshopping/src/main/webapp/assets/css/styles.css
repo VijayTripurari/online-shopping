@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+
+
+
+   .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      
+      margin: auto;
+  }
+
+
+
+/* UNIVERSAL SELECCTOR */
+
+
+
+ footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffc04c  ;
+}
+  
+
+  #nav1{
+     color : blue;
+     font-weight : bold;
+     font-size : large;
+  }
+  ul li {
+  color : blue;
+     font-weight : bold;
+     font-size : large;
+  }
+  #li1 {
+    width : 80px;
+  }
+  modal-header {
+    background-color : #5cb85c  ;
+  }
+  
+
+ /*  new footer  */
+ 
+ 
+  
