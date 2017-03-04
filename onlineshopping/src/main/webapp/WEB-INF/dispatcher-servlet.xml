@@ -13,6 +13,7 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd ">
     
     <context:component-scan base-package="net.vijay.onlineshopping.controller" />
+    <context:component-scan base-package="net.vijay.shoppingbackend.daoimpl" />
     
     	<bean id="ViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,4 +23,4 @@
     <mvc:annotation-driven/>
     <mvc:resources location="/assets/" mapping="/resources/**"></mvc:resources>
     
-    </beans>
+</beans>

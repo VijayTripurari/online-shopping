@@ -1,6 +1,12 @@
 @CHARSET "ISO-8859-1";
 
-
+ html {
+   width: 100%;
+ }
+ body {
+   padding-top : 70px
+   height: 100%;
+ }
 
    .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
@@ -14,19 +20,13 @@
 
 
 
- footer {
-    position: fixed;
-    height: 100px;
-    bottom: 0;
-    width: 100%;
-    background-color: #ffc04c  ;
-}
-  
+ 
 
   #nav1{
      color : blue;
      font-weight : bold;
      font-size : large;
+     background-color:  #cccccc;
   }
   ul li {
   color : blue;
@@ -40,7 +40,29 @@
     background-color : #5cb85c  ;
   }
   
+  .wrapper {
+    min-height: 100%;
+    position : relative;
+    
+  }
+  
+  .content {
+    padding-bottom : 90px;
+  }
+  
+  footer {
+    margin : 0;
+    position : absolute;
+    bottom : 0 ;
+    height : 90px;
+     background-color: #ffc04c;
+   
+  }
 
+  .footer {
+    
+    
+  }
  /*  new footer  */
  
  

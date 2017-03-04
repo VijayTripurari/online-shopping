@@ -14,6 +14,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>net.vijay</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
@@ -28,20 +33,20 @@
 			<version>${javaee.version}</version>
 			<scope>provided</scope>
 		</dependency>
-       <!-- spring web mvc -->
-       
-       <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>${spring.version}</version>
-</dependency>
- <dependency>
-    <groupId>jstl</groupId>
-    <artifactId>jstl</artifactId>
-    <version>1.2</version>
-</dependency>
-       
+		<!-- spring web mvc -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
