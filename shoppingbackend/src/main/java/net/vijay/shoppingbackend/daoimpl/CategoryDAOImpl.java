@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import net.vijay.shoppingbackend.dao.CategoryDAO;
 import net.vijay.shoppingbackend.dto.Category;
@@ -16,52 +17,36 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	private Category category;
+	private static AnnotationConfigApplicationContext context;
+	private static CategoryDAO categoryDAO;
+
 	
-	private static List<Category> categories = new ArrayList<Category>();
+	private  List<Category> categories = new ArrayList<Category>();
 	
-	static
-	{
-		
-		Category   category1 = new Category();
-		
-		// category 1\
-		
-		category1.setId(1);
-		category1.setName("Mobile");
-		category1.setDescription("Mobile Category");
-		
-		
-		// category 2
-		Category   category2 = new Category();
-				category2.setId(1);
-				category2.setName("Labtop");
-				category2.setDescription("Laptop Category");
-				
-		
-		// category 1
-				Category   category3 = new Category();
-				category3.setId(1);
-				category3.setName("Television");
-				category3.setDescription("Television Category");
-				
-		
-				
-		categories.add(category1);
-		categories.add(category2);
-		categories.add(category3);
+	static {
+	context = new AnnotationConfigApplicationContext();
+	context.scan("net.vijay.shoppingbackend");
+	context.refresh();
+	
 	}
 	
 	
+
+	
+	
 	@Override
-	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return categories;
+	@Transactional
+	public List<Category>  list() {
+	        categories = sessionFactory.getCurrentSession().createQuery("from Category").list();
+	    return categories;
+	
 	}
 
 
 	@Override
 	@Transactional
-	public boolean add(Category category) {
+	public boolean addCategory(Category category) {
 		
 		try
 		{
@@ -76,5 +61,48 @@ public class CategoryDAOImpl implements CategoryDAO {
 		}
 	
 	}
+
+    
+	@Transactional
+	public boolean get(int id) {
+		 Object o = sessionFactory.getCurrentSession().get(Category.class, id);
+		   if(o != null)
+		       return true;
+		   else
+			   return false;
+	}
+
+
+	@Transactional
+	public boolean deleteCategory(int id) {
+		  int count = sessionFactory.getCurrentSession().createQuery("delete Category where id = :cid").setParameter("cid", id).executeUpdate();
+		 if(count != 0)
+		  return true;
+		 else
+		  return false;	 
+	}
+
+    
+	public boolean updateCategory(int id, String name, String desc) {
+	
+			 Category employee =  (Category) sessionFactory.getCurrentSession().get(Category.class, id);
+          try
+          {
+                employee.setName(name);
+		        employee.setDescription(desc);
+		  sessionFactory.getCurrentSession().update(employee);
+		    return true;
+          }
+          catch(Exception e)
+          {
+        	  return false;
+          }
+		
+		
+	}
+
+
+	
+	
 
 }

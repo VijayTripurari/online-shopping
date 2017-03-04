@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import net.vijay.shoppingbackend.dao.CategoryDAO;
 import net.vijay.shoppingbackend.dto.Category;
 
-public class CategoryTestCase {
+public class getCategoryTestCase {
 	
 	private static AnnotationConfigApplicationContext context;
 	private static CategoryDAO categoryDAO;
@@ -28,12 +28,11 @@ public class CategoryTestCase {
 	}
 
 @Test	
-  public void addTestCategory()
+  public void getTestCategory()
   {
-	  category = new Category();
-	  category.setName("Laptop");
-	  category.setDescription("LapTop Category");
-	  assertEquals("Successfully added a row inside the table!", true , categoryDAO.addCategory(category));
+	    
+	
+	  assertEquals("Successfully added a row inside the table!", true , categoryDAO.get(2));
 	  
   }
 

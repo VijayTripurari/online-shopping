@@ -18,7 +18,7 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		   mv.addObject("title", "home");
 		   mv.addObject("userClickHome", true);
-		   mv.addObject("categories", categoryDAO.list());
+	   mv.addObject("categories", categoryDAO.list());
 		return mv;
 	}
 	@RequestMapping("/about")
