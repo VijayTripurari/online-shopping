@@ -19,7 +19,9 @@
 /* UNIVERSAL SELECCTOR */
 
 
-
+.tr.td {
+	align : center ;
+}
  
 
   #nav1{

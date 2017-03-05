@@ -27,6 +27,8 @@
 
 
 			<li id="contact"><a href="${contextRoot}/contact">ContactUs</a></li>
+			<li id="Admin"><a href="${contextRoot}/adminAccess">Admin</a></li>
+			
 
 			<li><div class="dropdown">
 				<button class="btn btn-primary btn-lg dropdown-toggle" type="button"

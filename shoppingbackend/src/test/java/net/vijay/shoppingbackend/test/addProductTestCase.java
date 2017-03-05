@@ -31,6 +31,7 @@ public class addProductTestCase {
   public void addTestProduct()
   {
 	 product = new Product();
+	  //product.setId(7);
 	  product.setName("Micromax");
 	  product.setDescription("Micromax Product");
 	  product.setImage_url("6.jpg");
@@ -39,6 +40,8 @@ public class addProductTestCase {
 	  product.setActive(true);
 	//  assertEquals("Successfully added a row inside the table!", true , productDAO.addProduct(product));
 	  
-  }
+ 
 
+
+}
 }

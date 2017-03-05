@@ -32,36 +32,64 @@
 <script src="${js}/producttable.js"></script>
 
 </head>
-<body >
-	<div class="wrapper" style = " backgound-color : #ffff8d;">
+<body>
+	<div class="wrapper">
 		<!-- include nav bar  -->
 		<%@include file="./shared/navbar.jsp"%>
 		<div class="content">
-			<!--  home content -->
-			<c:if test="${userClickHome == true}">
-				<%@include file="home.jsp"%>
-			</c:if>
-			<!-- product list -->
-
-			<c:if test="${userClickAllProducts == true}">
-			        
-				<%@include file="ListProducts.jsp"%>
-			</c:if>
 			
-			<c:if test="${userClickAdminPage == true}">
-			   <%@include file="adminProduct.jsp" %>
-			</c:if>
+<div class="container">
 
-			<!--  About Us content -->
-			<c:if test="${userClickAbout == true}">
-				<%@include file="about.jsp"%>
-			</c:if>
+	<div class="col-lg-3"></div>
+	<div class="col-lg-6">
+		<form:form action="${contextRoot}/admin/product.do" method="POST" modelAttribute="product">
+			<table>
+				<tr>
+					<td>Id :</td>
+					<td><form:input type="text" path="id" id="id1" /></td>
+				</tr>
+				<tr>
+					<td>Name :</td>
+					<td><form:input type="text" path="name" id="name" /></td>
+				</tr>
+				<tr>
+					<td>Desc :</td>
+					<td><form:input type="text" path="description"
+							id="description" /></td>
+				</tr>
+				<tr>
+					<td>Img url :</td>
+					<td><form:input type="text" path="image_url" id="image_url" /></td>
+				</tr>
+				<tr>
+					<td>quantity :</td>
+					<td><form:input type="text" path="quantity" id="quantity" /></td>
+				</tr>
+				<tr>
+					<td>Price :</td>
+					<td><form:input type="text" path="price" id="price" /></td>
+				</tr>
+				<tr>
+					<td>is Avialable :</td>
+					<td><form:input type="text" path="active" id="active" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="action" value="add" /></td>
+					<td><input type="submit" name="action" value="update" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="action" value="delete" /></td>
+					<td><input type="submit" name="action" value="search" /></td>
+				</tr>
 
-			<!--  Contact Us content -->
-			<c:if test="${userClickContact == true}">
-				<%@include file="contact.jsp"%>
-			</c:if>
-		</div>
+			</table>
+		</form:form>
+	</div>
+</div class="col-lg-3">
+</div>
+</div>
+			
+					</div>
 
 		<!--  add the footer here    -->
 		<%@include file="./shared/footer.jsp"%>

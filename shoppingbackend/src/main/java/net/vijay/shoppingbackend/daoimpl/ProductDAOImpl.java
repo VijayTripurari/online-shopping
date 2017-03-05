@@ -3,6 +3,9 @@ package net.vijay.shoppingbackend.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.*;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,17 +37,7 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 	
 		
-	@Override
-	@Transactional
-	public void addProduct(Product product) {
-		
 	
-			
-			sessionFactory.getCurrentSession().persist(product);
-			
-	
-	
-	}
 
 	@Override
 	@Transactional
@@ -74,6 +67,13 @@ public class ProductDAOImpl implements ProductDAO {
 	public void updateProduct(Product product)
 	{
 		sessionFactory.getCurrentSession().update(product);
+	}
+
+	
+	@Transactional
+	public void addProduct(Product product) {
+		sessionFactory.getCurrentSession().persist(product);
+		
 	}
 		
 	}
