@@ -37,7 +37,7 @@
 				<ul class="dropdown-menu">
 			   <c:forEach var="category"  items="${categories}">
 			    <li class="divider"></li>
-			  	   <li><a href="#">${category.name}</a></li>
+			  	   <li><a href="${contextRoot}/allProducts">${category.name}</a></li>
 			  	  
 				</c:forEach>	
 				</ul>
