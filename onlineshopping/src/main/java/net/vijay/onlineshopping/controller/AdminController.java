@@ -2,6 +2,8 @@ package net.vijay.onlineshopping.controller;
 
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -38,13 +40,30 @@ public class AdminController
 		ModelAndView mv = new ModelAndView("page");
 		   mv.addObject("title","Admin Page");
 		   mv.addObject("userClickAdminPage", true);
-		   mv.addObject("product", new Product());
+	  mv.addObject("product", new Product());
 		return mv;
 	}
 
 	@RequestMapping(value="/product.do", method= RequestMethod.POST)
-	public ModelAndView doActions(@ModelAttribute Product product , BindingResult result , @RequestParam  String action , Map<String , Object> map)
+	public ModelAndView doActions( @Valid @ModelAttribute  Product  product , BindingResult result , @RequestParam  String action , Map<String , Object> map)
 	{
+		 
+		
+		
+		
+		if (  (result.getErrorCount() > 0 )  && (product.getId() == 0) )
+				{
+			 
+			ModelAndView mv = new ModelAndView("page");
+			   mv.addObject("title","Admin Page");
+			   mv.addObject("userClickAdminPage", true);
+	 mv.addObject("product", product);
+			return mv;
+		 
+		   }
+	
+		else 
+		{		
 		int choice=0;
 		Product productResult  = new Product();
 		if(action.equals("add"))
@@ -60,11 +79,11 @@ public class AdminController
 		{
 		case 1 :   
 			      productDAO.addProduct(product);
-			      productResult = product;
+			      productResult = new Product();
 		          break; 
 		case 2 :   
 		      productDAO.updateProduct(product);;
-		      productResult = product;
+		      productResult = new Product();
 	          break; 
 		case 3 :   
 		      productDAO.deleteProduct(product.getId());;
@@ -77,16 +96,13 @@ public class AdminController
 		
 		}
 		
-/*		map.put("product", productResult);
-		map.put("productList", productDAO.list());
-		 return "redirect: adminAccess";
-	      */
+
 		ModelAndView mv = new ModelAndView("page");
 		map.put("product", productResult);
 		 mv.addObject("userClickAdminPage", true);
 		map.put("productList", productDAO.list());
 		 return mv;
-		
+		}
 	}
 	
 }

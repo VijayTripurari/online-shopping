@@ -5,19 +5,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int	id ;
+    
+    @NotNull(message = "Name is required") 
+    @Size(min= 1 , max = 15)
 	private String name ;
-	private String description ;
+    
+	@NotNull(message = "desc is required")
+	@Size(min= 1 , max = 50)
+    private String description ;
+	
+	@NotNull(message = "image url is required")
+	
 	private String image_url;
+	
+	@NotNull(message = "quantity is required")
+	
 	private int quantity;
+	
+	@NotNull(message = "price is mandotory")
 	private int price ;
+	
+	@NotNull(message = "give product as active")
 	@Column(name = "is_active")
 	private boolean active = true;
+	
 	public int getId() {
 		return id;
 	}
