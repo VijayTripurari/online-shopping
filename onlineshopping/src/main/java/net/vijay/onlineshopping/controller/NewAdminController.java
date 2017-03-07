@@ -28,7 +28,7 @@ public class NewAdminController {
 
 	@RequestMapping("/NewAdminProductAccess")
 	public ModelAndView listAllProducts() {
-		ModelAndView mv = new ModelAndView("NewAdminProduct");
+		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Admin Page");
 		mv.addObject("userClickNewAdminPage", true);
 		mv.addObject("product", new Product());
@@ -36,7 +36,7 @@ public class NewAdminController {
 	}
 
 	
-	@RequestMapping(value = "/product.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/product1.do", method = RequestMethod.POST)
 	public ModelAndView doActions(@Valid @ModelAttribute Product product, BindingResult result,
 			@RequestParam String action, Map<String, Object> map) {
 		
@@ -47,9 +47,9 @@ public class NewAdminController {
 
 		if ((result.getErrorCount() > 0) && (product.getId() == 0)) {
 
-			ModelAndView mv = new ModelAndView("NewAdminProduct");
+			ModelAndView mv = new ModelAndView("page");
 			mv.addObject("title", "Admin Page");
-			mv.addObject("userClickAdminPage", true);
+			mv.addObject("userClickNewAdminPage", true);
 			mv.addObject("product", product);
 			return mv;
 
@@ -89,7 +89,7 @@ public class NewAdminController {
 
 			}
 
-			ModelAndView mv = new ModelAndView("NewAdminProduct");
+			ModelAndView mv = new ModelAndView("page");
 			map.put("product", productResult);
 			mv.addObject("userClickAdminPage", true);
 			map.put("productList", productDAO.list());

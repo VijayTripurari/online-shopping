@@ -56,13 +56,20 @@ $(function() {
 						{
 							data : null,
 							mRender : function(data, type, row) {
-
 								console.log(row);
-								return '<a href="#"  role="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#'
-										+ row.id
-										+ '">View</a> <button type="submit" class="btn btn-danger btn-lg">Add to Cart</button>';
-
-							}
+								
+								return "<a href='/onlineshopping/admin/"+ row.id +"/editproduct'  class='btn btn-success '>EDIT</a>";
+								
+							} },
+							{
+								data : null,
+								mRender : function(data, type, row) {
+									console.log(row);
+									
+									return "<a href='/onlineshopping/admin/"+ row.id +"/updateproduct'  class='btn btn-danger '>DELETE</a>";
+									
+								}
+							
 						} ]
 			});
 

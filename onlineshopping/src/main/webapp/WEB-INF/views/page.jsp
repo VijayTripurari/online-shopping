@@ -30,8 +30,9 @@
 <script src="${js}/bootstrap.min.js"></script>
 <script src="${js}/dataTables.bootstrap.js"></script>
 
+
 <script src="${js}/myapp.js"></script>
-<script src="${js}/producttable.js"></script>
+
 
 </head>
 <body >
@@ -54,8 +55,17 @@
 			   <%@include file="adminCategory.jsp" %>
 			</c:if>
 			
+		 
+			
 			<c:if test="${userClickAdminPage == true}">
 			   <%@include file="adminProduct.jsp" %>
+			</c:if>
+			<c:if test="${editproduct == true}">
+			   <%@include file="editproduct.jsp" %>
+			</c:if>
+			
+			<c:if test="${deleteproduct == true}">
+			   <%@include file="updateproduct.jsp" %>
 			</c:if>
 
 			<!--  About Us content -->

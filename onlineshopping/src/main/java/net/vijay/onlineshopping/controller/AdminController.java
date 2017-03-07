@@ -8,8 +8,10 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,9 +34,30 @@ public class AdminController {
 		mv.addObject("title", "Admin Page");
 		mv.addObject("userClickAdminPage", true);
 		mv.addObject("product", new Product());
+		mv.addObject("productList", productDAO.list());
 		return mv;
 	}
 
+	
+	@RequestMapping("admin/{id}/editproduct")
+	public String editMethod(@PathVariable Integer id , ModelMap model)
+	{
+		model.addAttribute("admin", true);
+		model.addAttribute("editproduct", true);
+		model.addAttribute("product", productDAO.getProduct(id));
+		return "page";
+		
+	}
+	
+	@RequestMapping("admin/{id}/updateproduct")
+	public String updateMethod(@PathVariable Integer id , ModelMap model)
+	{
+		model.addAttribute("admin", true);
+		model.addAttribute("deleteproduct", true);
+		model.addAttribute("product", productDAO.getProduct(id));
+		return "page";
+		
+	}
 	
 	@RequestMapping(value = "/product.do", method = RequestMethod.POST)
 	public ModelAndView doActions(@Valid @ModelAttribute Product product, BindingResult result,
@@ -74,7 +97,7 @@ public class AdminController {
 				break;
 			case 2:
 				productDAO.updateProduct(product);
-				;
+				
 				productResult = new Product();
 				break;
 			case 3:

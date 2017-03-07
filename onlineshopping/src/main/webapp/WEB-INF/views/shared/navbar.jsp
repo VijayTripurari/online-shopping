@@ -40,7 +40,7 @@
 							<li class="divider"></li>
 							<li><a href="${contextRoot}/adminCategoryAccess">Category</a></li>
                             <li class="divider"></li>
-							<li><a href="${contextRoot}/NewAdminProductAccess">Products</a></li>
+							<li><a href="${contextRoot}/adminAccess">Products</a></li>
 
 						
 					</ul>

@@ -1,7 +1,42 @@
-	
-<div class="container">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>    
 
-	<div class="col-lg-3"></div>
+
+<spring:url var="css" value="/resources/css" />
+<spring:url var="js" value="/resources/js" />
+<spring:url var="images" value="/resources/images" />
+
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Online Shopping - ${title}</title>
+<script>
+	window.menu = '${title}';
+</script>
+
+<link rel="stylesheet" href="${css}/bootstrap.min.css">
+<link rel="stylesheet" href="${css}/styles.css">
+
+<link rel="stylesheet" href="${css}/dataTables.bootstrap.css">
+
+
+<script src="${js}/jquery.js"></script>
+<script src="${js}/jquery.dataTables.js"></script>
+<script src="${js}/bootstrap.min.js"></script>
+<script src="${js}/dataTables.bootstrap.js"></script>
+
+
+<script src="${js}/myapp.js"></script>
+
+
+</head>
+<body>
+<div class="col-lg-3"></div>
  <div class="col-lg-6">
 <div class="container-fluid">
                          
@@ -55,7 +90,7 @@
 							<form:input path="quantity" placeholder="Quantity " id="quantity"
 								class="form-control input-sm" width="300px" />
 							<div class="has-error">
-								<form-errors path="quantity" class="help-inline" />	
+								<form-errors path="quantity" class="help-inline" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -76,7 +111,7 @@
 						</div>
 						<tr>
 							<td align="center" colspan="2"><input type="submit"
-								class="btn btn-md btn-primary" name="action" value="add" />
+								class="btn btn-md btn-primary" name="action" value="update" />
 							</td>
 						</tr>
 
@@ -86,31 +121,5 @@
 			</div>	
 	</div>	
 	<div class="col-lg-3"></div>		
- </div>
-<!--  DATA TABLE -->
-<div class="col-lg-2"></div>
-<div class="col-lg-8">
-<table id="example" class="table table-bordered table-condensed">
-
-		<thead>
-			<tr style="background-color: #ffa500">
-				<th width="6%">Product Id</th>
-				<th width="6%">Image</th>
-				<th width="6%">Product Name</th>
-				<th width="6%">Description</th>
-				<th width="6%">Price</th>
-				<th width="6%">Quantity</th>
-				<th width="6%">active</th>
-				<th width="6%">Edit</th>
-				<th width="6%">Update</th>
-				
-
-			</tr>
-		</thead>
-
-	</table>
-	</div>
-	<div class="col-lg-1">
-	</div>
-
-</div>
+</body>
+</html>
