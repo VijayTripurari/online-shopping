@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Category {
@@ -16,9 +18,15 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String name;
+	@NotNull(message = "Name is required") 
+    @Size(min= 1 , max = 15)
+	private String name ;
+    
+    @NotNull(message = "desc is required")
+	@Size(min= 1 , max = 50)
+    private String description ;
 	
-	private String description;
+	@NotNull(message = "give product as active")
 	@Column(name = "is_active")
 	private boolean active = true;
 	

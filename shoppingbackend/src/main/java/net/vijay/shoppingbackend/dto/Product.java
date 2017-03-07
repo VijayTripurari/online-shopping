@@ -5,7 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.*;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 @Entity
 public class Product {
@@ -13,9 +21,23 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int	id ;
     
-    @NotNull(message = "Name is required") 
+    @Transient
+    @JsonIgnore
+    private MultipartFile  file;
+    
+    public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	@NotNull(message = "Name is required") 
     @Size(min= 1 , max = 15)
+	
 	private String name ;
+    
+    
+    
     
 	@NotNull(message = "desc is required")
 	@Size(min= 1 , max = 50)

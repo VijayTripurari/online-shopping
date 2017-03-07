@@ -5,18 +5,19 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.vijay.shoppingbackend.dto.Category;
+import net.vijay.shoppingbackend.dto.Product;
 
 public interface CategoryDAO {
 	@Transactional
-	public boolean addCategory(Category category);
+	public void addCategory(Category category);
 	@Transactional
 	public List<Category> list();
 	@Transactional
-	public boolean get(int id);
+	public Category getCategory(int id);
 	@Transactional
-	public boolean deleteCategory(int id);
+	public void deleteCategory(int id);
 	
 	@Transactional
-	public boolean updateCategory(int id , String name , String desc);
+	public void updateCategory(Category category);
 	
 }

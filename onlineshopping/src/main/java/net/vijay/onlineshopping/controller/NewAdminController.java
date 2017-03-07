@@ -20,17 +20,17 @@ import net.vijay.shoppingbackend.dao.ProductDAO;
 import net.vijay.shoppingbackend.dto.Product;
 
 @Controller
-public class AdminController {
+public class NewAdminController {
 
 	@Autowired
 	private ProductDAO productDAO;
 	private @Autowired HttpServletRequest request;
 
-	@RequestMapping("/adminAccess")
+	@RequestMapping("/NewAdminProductAccess")
 	public ModelAndView listAllProducts() {
-		ModelAndView mv = new ModelAndView("page");
+		ModelAndView mv = new ModelAndView("NewAdminProduct");
 		mv.addObject("title", "Admin Page");
-		mv.addObject("userClickAdminPage", true);
+		mv.addObject("userClickNewAdminPage", true);
 		mv.addObject("product", new Product());
 		return mv;
 	}
@@ -47,7 +47,7 @@ public class AdminController {
 
 		if ((result.getErrorCount() > 0) && (product.getId() == 0)) {
 
-			ModelAndView mv = new ModelAndView("page");
+			ModelAndView mv = new ModelAndView("NewAdminProduct");
 			mv.addObject("title", "Admin Page");
 			mv.addObject("userClickAdminPage", true);
 			mv.addObject("product", product);
@@ -89,7 +89,7 @@ public class AdminController {
 
 			}
 
-			ModelAndView mv = new ModelAndView("page");
+			ModelAndView mv = new ModelAndView("NewAdminProduct");
 			map.put("product", productResult);
 			mv.addObject("userClickAdminPage", true);
 			map.put("productList", productDAO.list());

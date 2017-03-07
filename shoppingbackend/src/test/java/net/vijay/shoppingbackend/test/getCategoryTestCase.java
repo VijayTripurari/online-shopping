@@ -32,7 +32,7 @@ public class getCategoryTestCase {
   {
 	    
 	
-	  assertEquals("Successfully added a row inside the table!", true , categoryDAO.get(2));
+	//  assertEquals("Successfully added a row inside the table!", true , categoryDAO.get(2));
 	  
   }
 

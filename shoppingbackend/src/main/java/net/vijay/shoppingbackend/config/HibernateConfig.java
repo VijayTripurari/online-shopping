@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
 @ComponentScan(basePackages="{net.vijay.shoppingbackend.dto}")
@@ -75,7 +76,15 @@ public HibernateTransactionManager  getTransactionManager(SessionFactory session
 }
 
 
-
+@Bean (name = "multipartResolver")
+public CommonsMultipartResolver gerMulripartResolver()
+{
+	
+	long maxUploadSize = 1000000;
+	CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+	multipartResolver.setMaxUploadSize(maxUploadSize);
+	  return multipartResolver;
+}
 
 	
 

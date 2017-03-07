@@ -28,23 +28,41 @@
 
 			<li id="contact"><a href="${contextRoot}/contact">ContactUs</a></li>
 			<li id="Admin"><a href="${contextRoot}/adminAccess">Admin</a></li>
-			
+   	 	
+			<li><div class="dropdown">
+					<button class="btn btn-primary btn-lg dropdown-toggle"
+						type="button" data-toggle="dropdown">
+						Admin<span class="caret"></span>
+					</button>
+
+					<ul class="dropdown-menu">
+						
+							<li class="divider"></li>
+							<li><a href="${contextRoot}/adminCategoryAccess">Category</a></li>
+                            <li class="divider"></li>
+							<li><a href="${contextRoot}/NewAdminProductAccess">Products</a></li>
+
+						
+					</ul>
+
+				</div></li>
+        
 
 			<li><div class="dropdown">
-				<button class="btn btn-primary btn-lg dropdown-toggle" type="button"
-					data-toggle="dropdown">
-					Products <span class="caret"></span>
-				</button>
-          
-				<ul class="dropdown-menu">
-			   <c:forEach var="category"  items="${categories}">
-			    <li class="divider"></li>
-			  	   <li><a href="${contextRoot}/allProducts">${category.name}</a></li>
-			  	  
-				</c:forEach>	
-				</ul>
-				
-			</div></li>
+					<button class="btn btn-primary btn-lg dropdown-toggle"
+						type="button" data-toggle="dropdown">
+						Products <span class="caret"></span>
+					</button>
+
+					<ul class="dropdown-menu">
+						<c:forEach var="category" items="${categories}">
+							<li class="divider"></li>
+							<li><a href="${contextRoot}/allProducts">${category.name}</a></li>
+
+						</c:forEach>
+					</ul>
+
+				</div></li>
 			<li><a href="#" role="button" class="btn btn-primary btn-lg"
 				data-toggle="modal" data-target="#myModal"><font color="black">Login</font></a></li>
 			<li><a href="#" role="button" class="btn btn-success btn-lg"

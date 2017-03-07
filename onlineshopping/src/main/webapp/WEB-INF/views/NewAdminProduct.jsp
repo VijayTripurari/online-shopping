@@ -39,33 +39,9 @@
 		<!-- include nav bar  -->
 		<%@include file="./shared/navbar.jsp"%>
 		<div class="content">
-			<!--  home content -->
-			<c:if test="${userClickHome == true}">
-				<%@include file="home.jsp"%>
-			</c:if>
-			<!-- product list -->
-
-			<c:if test="${userClickAllProducts == true}">
-			        
-				<%@include file="ListProducts.jsp"%>
-			</c:if>
-			
-			<c:if test="${userClickAdminCategoryPage == true}">
-			   <%@include file="adminCategory.jsp" %>
-			</c:if>
-			
-			<c:if test="${userClickAdminPage == true}">
-			   <%@include file="adminProduct.jsp" %>
-			</c:if>
-
-			<!--  About Us content -->
-			<c:if test="${userClickAbout == true}">
-				<%@include file="about.jsp"%>
-			</c:if>
-
-			<!--  Contact Us content -->
-			<c:if test="${userClickContact == true}">
-				<%@include file="contact.jsp"%>
+						
+			<c:if test="${userClickNewAdminPage == true}">
+			   <%@include file="NewAdminProduct.jsp" %>
 			</c:if>
 		</div>
 
