@@ -19,8 +19,6 @@ public class Confirmhandler {
 	}
 	
 	
-	
-	
 	 private Address userAddress1;
 	 private Address userAddress2;
 	 @Autowired
@@ -32,20 +30,13 @@ public class Confirmhandler {
 	   
 	   userAddress2 = new Address();
 	
-	 
-	   
 		
 	}
 
-	
-	
-
- 
 	public String validateDetails(User user,MessageContext messageContext)
 	{
 		
-		 
-		
+			
 		boolean  status;
 		
 		 try
@@ -58,9 +49,7 @@ public class Confirmhandler {
 			 status = false;
 		 }
 		
-		
-		
-		
+	
 		if(user.getUserName().isEmpty()){
 			messageContext.addMessage(new MessageBuilder().error().source(
 					"email").defaultText("Email cannot be Empty").build());
