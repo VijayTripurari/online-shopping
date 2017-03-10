@@ -27,8 +27,7 @@
 
 
 			<li id="contact"><a href="${contextRoot}/contact">ContactUs</a></li>
-			<li id="Admin"><a href="${contextRoot}/adminAccess">Admin</a></li>
-   	 	
+		
 			<li><div class="dropdown">
 					<button class="btn btn-primary btn-lg dropdown-toggle"
 						type="button" data-toggle="dropdown">
@@ -65,9 +64,8 @@
 				</div></li>
 			<li><a href="#" role="button" class="btn btn-primary btn-lg"
 				data-toggle="modal" data-target="#myModal"><font color="black">Login</font></a></li>
-			<li><a href="#" role="button" class="btn btn-success btn-lg"
-				data-toggle="modal" data-target="#RegisterModal"><font
-					color="black">Register</font></a></li>
+			<li><a href="memberDetails" role="button" class="btn btn-success btn-large">
+                         <font color="black">Register</font></a></li>
 
 
 		</ul>

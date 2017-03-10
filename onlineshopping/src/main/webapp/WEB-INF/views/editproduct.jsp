@@ -109,6 +109,14 @@
 								<form-errors path="active" class="help-inline" />
 							</div>
 						</div>
+						<div class="form-group">
+							<form:label path="cid" for="cid">Category Id</form:label>
+							<form:input path="cid" placeholder="Category Id" id="cid"
+								class="form-control input-sm" width="300px" />
+							<div class="has-error">
+								<form-errors path="cid" class="help-inline" />
+							</div>
+						</div>
 						<tr>
 							<td align="center" colspan="2"><input type="submit"
 								class="btn btn-md btn-primary" name="action" value="update" />

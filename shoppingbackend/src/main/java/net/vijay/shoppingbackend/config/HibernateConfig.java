@@ -1,5 +1,7 @@
 package net.vijay.shoppingbackend.config;
 
+
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -20,7 +22,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 public class HibernateConfig {
 
 	// change the below depending on the DBMS you choose.
-	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/onlineshopping" ;
+	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/onlineshopping1" ;
 	private final static String DATABASE_DRIVER = "org.h2.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USERNAME =  "sa" ;
@@ -76,8 +78,8 @@ public HibernateTransactionManager  getTransactionManager(SessionFactory session
 }
 
 
-@Bean (name = "multipartResolver")
-public CommonsMultipartResolver gerMulripartResolver()
+@Bean(name = "multipartResolver")
+public CommonsMultipartResolver getMultipartResolver()throws IOException
 {
 	
 	long maxUploadSize = 1000000;

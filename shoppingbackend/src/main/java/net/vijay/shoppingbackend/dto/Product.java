@@ -33,12 +33,18 @@ public class Product {
 	}
 	@NotNull(message = "Name is required") 
     @Size(min= 1 , max = 15)
-	
 	private String name ;
     
+    @NotNull(message = "cid is required")
+    private int cid;
     
     
-    
+	public int getCid() {
+		return cid;
+	}
+	public void setCid(int cid) {
+		this.cid = cid;
+	}
 	@NotNull(message = "desc is required")
 	@Size(min= 1 , max = 50)
     private String description ;

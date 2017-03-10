@@ -1,6 +1,6 @@
 	
 <div class="container">
-
+<b>
 	<div class="col-lg-3"></div>
  <div class="col-lg-6">
 <div class="container-fluid">
@@ -74,9 +74,17 @@
 								<form-errors path="active" class="help-inline" />
 							</div>
 						</div>
+						<div class="form-group">
+							<form:label path="cid" for="cid">Category Id</form:label>
+							<form:input path="cid" placeholder="Category Id" id="cid"
+								class="form-control input-sm" width="300px" />
+							<div class="has-error">
+								<form-errors path="cid" class="help-inline" />
+							</div>
+						</div>
 						<tr>
 							<td align="center" colspan="2"><input type="submit"
-								class="btn btn-md btn-primary" name="action" value="add" />
+								class="btn btn-lg btn-primary" name="action" value="add" />
 							</td>
 						</tr>
 
@@ -85,11 +93,13 @@
 				</form:form>
 			</div>	
 	</div>	
-	<div class="col-lg-3"></div>		
+	<div class="col-lg-3"></div>	
+	</b>	
  </div>
 <!--  DATA TABLE -->
 <div class="col-lg-2"></div>
 <div class="col-lg-8">
+<b>
 <table id="example" class="table table-bordered table-condensed">
 
 		<thead>
@@ -101,6 +111,7 @@
 				<th width="6%">Price</th>
 				<th width="6%">Quantity</th>
 				<th width="6%">active</th>
+				<th width="6%">CatgoryId</th>
 				<th width="6%">Edit</th>
 				<th width="6%">Update</th>
 				
@@ -108,7 +119,7 @@
 			</tr>
 		</thead>
 
-	</table>
+	</table></b>
 	</div>
 	<div class="col-lg-1">
 	</div>

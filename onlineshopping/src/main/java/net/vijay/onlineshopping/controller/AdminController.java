@@ -83,8 +83,8 @@ public class AdminController {
 			Product productResult = new Product();
 			if (action.equals("add"))
 				choice = 1;
-			if (action.equals("update"))
-				choice = 2;
+		if (action.equals("update"))
+				choice = 2;  
 			if (action.equals("delete"))
 				choice = 3;
 			if (action.equals("search"))
@@ -102,7 +102,7 @@ public class AdminController {
 				break;
 			case 3:
 				productDAO.deleteProduct(product.getId());
-				;
+				
 				productResult = new Product(); // empty form object
 				break;
 			case 4:

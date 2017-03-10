@@ -41,6 +41,21 @@
 		<%@include file="./shared/navbar.jsp"%>
 		<div class="content">
 			<!--  home content -->
+			
+			<div class="content">
+			<fieldset>
+				<legend>Navigation menu</legend>
+ 
+				<!-- here the href's value will be used to decide the 
+					 controller to be executed on click of this link.
+					 here "memberShip" is mapped in FlowController mapping-->
+			<div align="center">
+		
+			</div>
+			
+			</fieldset>
+		  </div>
+			
 			<c:if test="${userClickHome == true}">
 				<%@include file="home.jsp"%>
 			</c:if>
@@ -48,7 +63,7 @@
 
 			<c:if test="${userClickAllProducts == true}">
 			        
-				<%@include file="ListProducts.jsp"%>
+				<%@include file="ListProduct1.jsp"%>
 			</c:if>
 			
 			<c:if test="${userClickAdminCategoryPage == true}">

@@ -17,6 +17,7 @@
 				<th>Price</th>
 				<th>Quantity</th>
 				<th>active</th>
+				<th>CategoryId</th>
 				<th>Edit</th>
 				<th>Update</th>
 				

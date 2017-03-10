@@ -78,6 +78,8 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		
+		
 		<!-- SPRING orm DEPENDENCY -->
 		<dependency>
 			<groupId>org.springframework</groupId>

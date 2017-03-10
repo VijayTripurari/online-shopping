@@ -28,4 +28,4 @@
 </div>
 
 <!-- EDIT modal code. -->
-<%@include file="editupdate1.jsp" %>
+<%@include file="editproduct.jsp" %>

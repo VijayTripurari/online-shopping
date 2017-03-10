@@ -1,3 +1,5 @@
+
+<<script type="text/javascript">
 $(function() {
 
 	// solving the active menu problem
@@ -18,7 +20,7 @@ $(function() {
 	
 	/*Load the code for data table here*/
 	
-	$('#example')
+	$('#abcd')
 	.DataTable(
 			{
 				ajax : {
@@ -61,7 +63,7 @@ $(function() {
 							mRender : function(data, type, row) {
 								console.log(row);
 								
-								return "<a href='/onlineshopping/admin/"+ row.id +"/editproduct'  class='btn btn-success '>EDIT</a>";
+								return "<a href='/onlineshopping/admin/"+ row.id +"/editproduct'  class='btn btn-success '>View</a>";
 								
 							} },
 							{
@@ -69,7 +71,7 @@ $(function() {
 								mRender : function(data, type, row) {
 									console.log(row);
 									
-									return "<a href='/onlineshopping/admin/"+ row.id +"/updateproduct'  class='btn btn-danger '>DELETE</a>";
+									return "<a href='/onlineshopping/admin/"+ row.id +"/updateproduct'  class='btn btn-danger '>ADD TO CART</a>";
 									
 								}
 							
@@ -80,3 +82,38 @@ $(function() {
 	
 	
 });
+
+</script>
+
+
+<div class="container">
+
+	&emsp; &emsp;
+	<h2>
+		<font color="#8B4513"><b>Select Products to order </b></font>
+	</h2>
+
+	<table id="abcd" class="table table-bordered table-condensed">
+
+		<thead>
+			<tr style="background-color: #ffa500">
+				<th>Product Id</th>
+				<th>Image</th>
+				<th>Product Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>active</th>
+				<th>CategoryId</th>
+				<th>Edit</th>
+				<th>Update</th>
+				
+
+			</tr>
+		</thead>
+
+	</table>
+
+
+</div>
+
