@@ -128,6 +128,10 @@
 				</form:form>
 			</div>	
 	</div>	
-	<div class="col-lg-3"></div>		
+	<div class="col-lg-3"></div>	
+	<div style="width:100% ; height:10%">
+	
+	</div>
+		
 </body>
 </html>

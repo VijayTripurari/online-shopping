@@ -3,6 +3,10 @@
 
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,55 +31,60 @@
 
 
 			<li id="contact"><a href="${contextRoot}/contact">ContactUs</a></li>
-		
-			<li><div class="dropdown">
-					<button class="btn btn-primary btn-lg dropdown-toggle"
-						type="button" data-toggle="dropdown">
-						Admin<span class="caret"></span>
-					</button>
-
+			<security:authorize access="hasAuthority('ADMIN')">
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">ADMIN<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						
-							<li class="divider"></li>
-							<li><a href="${contextRoot}/adminCategoryAccess">Category</a></li>
-                            <li class="divider"></li>
-							<li><a href="${contextRoot}/adminAccess">Products</a></li>
+						<li><a href="${contextRoot}/admin/adminCategoryAccess">Category</a>
+						<li>
+						<li><a href="${contextRoot}/admin/adminAccess">Products</a></li>
 
-						
-					</ul>
 
-				</div></li>
-        
+					</ul></li>
+			</security:authorize>
 
-			<li><div class="dropdown">
-					<button class="btn btn-primary btn-lg dropdown-toggle"
-						type="button" data-toggle="dropdown">
-						Products <span class="caret"></span>
-					</button>
+			<security:authorize access="hasAuthority('CUSTOMER')">
+				<li><div class="dropdown">
+						<button class="btn btn-primary btn-lg dropdown-toggle"
+							type="button" data-toggle="dropdown">
+							Products <span class="caret"></span>
+						</button>
 
-					<ul class="dropdown-menu">
-						<c:forEach var="category" items="${categories}">
-							<li class="divider"></li>
-							<li><a href="${contextRoot}/allProducts">${category.name}</a></li>
+						<ul class="dropdown-menu">
+							<c:forEach var="category" items="${categories}">
+								<li class="divider"></li>
+								<li><a href="${contextRoot}/allProducts">${category.name}</a></li>
 
-						</c:forEach>
-					</ul>
+							</c:forEach>
+						</ul>
 
-				</div></li>
-			<li><a href="#" role="button" class="btn btn-primary btn-lg"
-				data-toggle="modal" data-target="#myModal"><font color="black">Login</font></a></li>
-			<li><a href="memberDetails" role="button" class="btn btn-success btn-large">
-                         <font color="black">Register</font></a></li>
+					</div></li>
+			</security:authorize>
 
+          <security:authorize access="isAnonymous()">
+			<li><a href="${contextRoot}/login" role="button"
+				class="btn btn-default btn-lg" data-toggle="modal"><font
+					color="black">Login</font></a></li>
+          </security:authorize>
+
+         <security:authorize access="isAnonymous()">
+			<li><a href="memberDetails" role="button"
+				class="btn btn-default btn-large"> <font color="black">Register</font></a></li>
+         </security:authorize>
 
 		</ul>
 		<ul class="nav navbar-nav pull-right">
 
-			<li><a href="#">Cart</a></li>
-			<li id="li1" style="font-size: large; font-weight: bold;"><a
-				href="#"><span class="glyphicon glyphicon-user">User</span></a></li>
-			<li style="font-size: large; font-weight: bold;"><a href="#"><span
-					class="glyphicon glyphicon-off">LogOut</span></a></li>
+			
+		<security:authorize access="hasAuthority('CUSTOMER')">
+		 <li><a href="#">Cart</a></li>
+		 </security:authorize>	
+			
+			<security:authorize access="isAuthenticated()">
+				<li style="font-size: large; font-weight: bold;" id="logout"><a
+					href="${contextRoot}/perform_logout"><span
+						class="glyphicon glyphicon-off"> Logout </span></a></li>
+			</security:authorize>
 		</ul>
 
 	</div>

@@ -3,6 +3,8 @@ package net.vijay.shoppingbackend.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.*;
 
 import org.hibernate.Session;
@@ -75,5 +77,14 @@ public class UserDAOImple implements UserDAO {
 		sessionFactory.getCurrentSession().update(user);
 
 	}
+
+	@Override
+	public User getUserByUsername(String email1) {
+		Query q=sessionFactory.getCurrentSession().createQuery("FROM User WHERE email=:abc");
+		q.setParameter("abc", email1);
+	User user=(User)q.getSingleResult();
+	return user;
+	
+		}
 
 }

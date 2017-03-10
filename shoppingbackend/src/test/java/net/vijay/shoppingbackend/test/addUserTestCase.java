@@ -39,19 +39,21 @@ public class addUserTestCase {
 	 
 	 user.setUserName("steven");
 	 user.setEmail("steven@gmail.com");
-	 user.setPhoneNo("9876543212");
-	 user.setRole("customer");
+	 user.setPhoneNo("7891234567");
+	 user.setEnabled(true);
+	 user.setRole("CUSTOMER");
+	 user.setPassword("steven@123");
 	   // create empty address list
 	
 	   // add 1 address
 	      Address address1 = new Address();
 	     
-	      address1.setCity("Delhi");
+	      address1.setCity("Hyd");
 	      address1.setCountry("india");
-	      address1.setHouseNo("9-21-23");
-	      address1.setPin("500022");
-	      address1.setState("Delhi");
-	      address1.setStreet("Noida");
+	      address1.setHouseNo("4-1-23");
+	      address1.setPin("500009");
+	      address1.setState("Telangana");
+	      address1.setStreet("Liberty");
 	      address1.setUser(user);
 	      user.getAddressList().add(address1);
 	      
@@ -60,12 +62,12 @@ public class addUserTestCase {
 	      
 	      Address address2 = new Address();
 	      
-	      address2.setCity("Delhi");
+	      address2.setCity("Hyd");
 	      address2.setCountry("india");
-	      address2.setHouseNo("6-8-98");
-	      address2.setPin("203432");
-	      address2.setState("Delhi");
-	      address2.setStreet("Gurgoan"); 
+	      address2.setHouseNo("6-5-98");
+	      address2.setPin("540987");
+	      address2.setState("Telangana");
+	      address2.setStreet("Uppal"); 
 	      address2.setUser(user);
 	      
 	      user.getAddressList().add(address2);

@@ -28,7 +28,7 @@ public class AdminController {
 	private ProductDAO productDAO;
 	private @Autowired HttpServletRequest request;
 
-	@RequestMapping("/adminAccess")
+	@RequestMapping("/admin/adminAccess")
 	public ModelAndView listAllProducts() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Admin Page");

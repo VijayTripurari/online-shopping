@@ -44,7 +44,7 @@
 			
 			<div class="content">
 			<fieldset>
-				<legend>Navigation menu</legend>
+			
  
 				<!-- here the href's value will be used to decide the 
 					 controller to be executed on click of this link.

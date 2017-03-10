@@ -22,7 +22,7 @@ public class AdminCategoryController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-	@RequestMapping("/adminCategoryAccess")
+	@RequestMapping("/admin/adminCategoryAccess")
 	public ModelAndView listAllCategories() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Admin Category Page");
