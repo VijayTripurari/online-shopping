@@ -17,6 +17,7 @@
  
 	<action-state id="validate">
 		<evaluate expression="demohandler.validateDetails(user,messageContext)"></evaluate>
+		
 		<transition on="success" to="confirmDetails" />
 		<transition on="failure" to="start" />
 	</action-state>

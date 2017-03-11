@@ -37,8 +37,9 @@ public class AdminController {
 		mv.addObject("productList", productDAO.list());
 		return mv;
 	}
-
 	
+	
+
 	@RequestMapping("admin/{id}/editproduct")
 	public String editMethod(@PathVariable Integer id , ModelMap model)
 	{

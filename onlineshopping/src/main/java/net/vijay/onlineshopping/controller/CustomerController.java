@@ -12,28 +12,36 @@ import net.vijay.shoppingbackend.dto.*;
 import java.util.*;
 
 @Controller
-public class ProductController {
+public class CustomerController {
 	@Autowired
 	private ProductDAO  productDAO;
-
 	
-	@RequestMapping("/all/data")
-	public @ResponseBody List<Product> StaticProductDetails() {
+	@RequestMapping("/all/data1")
+	public @ResponseBody List<Product> StaticCustomerProductDetails() {
 
 		return productDAO.list();
 	}
-
 	
-	@RequestMapping("admin/allProducts")
-	public ModelAndView listAllProducts()
+	@RequestMapping("/customer/customerAccess")
+	public ModelAndView list1AllCustomerProducts() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Customer Page");
+		mv.addObject("customerClickCustomerPage", true);
+		mv.addObject("product", new Product());
+		mv.addObject("productList", productDAO.list());
+		return mv;
+	}
+/*	@RequestMapping("customer/allProducts")
+	public ModelAndView listAllCustomerProducts()
 	{
 		ModelAndView mv = new ModelAndView("page");
 		   mv.addObject("title","List Products");
-		   mv.addObject("userClickAllProducts", true);
+		   mv.addObject("customerClickAllProducts", true);
 		   mv.addObject("products", productDAO.list());
 		return mv;
 	}
-	
-	
-	
+*/
 }
+
+
+

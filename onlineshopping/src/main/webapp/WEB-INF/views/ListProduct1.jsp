@@ -1,5 +1,5 @@
 
-<<script type="text/javascript">
+<script type="text/javascript">
 $(function() {
 
 	// solving the active menu problem

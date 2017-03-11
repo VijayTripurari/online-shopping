@@ -32,6 +32,7 @@
 
 
 <script src="${js}/myapp.js"></script>
+<script src="${js}/dataTable2.js"></script>
 
 
 </head>
@@ -66,6 +67,10 @@
 				<%@include file="ListProduct1.jsp"%>
 			</c:if>
 			
+			
+			
+			
+			
 			<c:if test="${userClickAdminCategoryPage == true}">
 			   <%@include file="adminCategory.jsp" %>
 			</c:if>
@@ -75,6 +80,12 @@
 			<c:if test="${userClickAdminPage == true}">
 			   <%@include file="adminProduct.jsp" %>
 			</c:if>
+			
+				<c:if test="${customerClickCustomerPage == true}">
+			   <%@include file="customerProduct.jsp" %>
+			</c:if>
+			
+			
 			<c:if test="${editproduct == true}">
 			   <%@include file="editproduct.jsp" %>
 			</c:if>
