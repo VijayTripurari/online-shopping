@@ -50,7 +50,7 @@ $(function() {
 									data : null,
 									mRender : function(data, type, row) {
 
-										return "<a href=''  class='btn btn-danger '>ADD TO CART</a>";
+										return "<a href='/onlineshopping/customer/"+ row.id +"/addProductToCart'  class='btn btn-danger '>ADD TO CART</a>";
 
 									}
 

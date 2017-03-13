@@ -3,28 +3,41 @@ package net.vijay.shoppingbackend.dto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class User implements Serializable {
+
+	
+	private static final long serialVersionUID = -4906912674192274404L;
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
 
+	@NotBlank(message = "Please enter first name!")
 	private String userName;
 
 	private boolean enabled = true;
 
 	private String password;
+	@NotBlank(message = "Please enter first name!")	
 	private String email;
 
+	@NotBlank(message = "Please enter first name!")
 	private String phoneNo;
 
 	public String getPassword() {
@@ -45,7 +58,14 @@ public class User implements Serializable {
 
 	private String role;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-	private List<Address> addressList = new ArrayList<Address>();
+	private Set<Address> addressList = new HashSet<Address>();
+	
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    private Cart cart;
+	
+	
+
+	
 
 	public String getUserName() {
 		return userName;
@@ -57,6 +77,23 @@ public class User implements Serializable {
 
 	public String getRole() {
 		return role;
+	}
+
+	public Set<Address> getAddressList() {
+		return addressList;
+	}
+
+	public void setAddressList(Set<Address> addressList) {
+		this.addressList = addressList;
+	}
+
+	public Cart getCart() {
+	
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 	public void setRole(String role) {
@@ -87,12 +124,11 @@ public class User implements Serializable {
 		this.phoneNo = phoneNo;
 	}
 
-	public List<Address> getAddressList() {
-		return addressList;
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", enabled=" + enabled + ", email=" + email
+				+ ", phoneNo=" + phoneNo + ", role=" + role + "]";
 	}
 
-	public void setAddressList(List<Address> addressList) {
-		this.addressList = addressList;
-	}
-
+	
 }

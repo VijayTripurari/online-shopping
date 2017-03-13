@@ -85,6 +85,11 @@
 			   <%@include file="customerProduct.jsp" %>
 			</c:if>
 			
+				<c:if test="${userClickViewCart == true}">
+			   <%@include file="viewCart.jsp" %>
+			</c:if>
+			
+			
 			
 			<c:if test="${editproduct == true}">
 			   <%@include file="editproduct.jsp" %>

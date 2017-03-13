@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -16,7 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+  <b>
 	<nav class="navbar navbar-default" id="nav1">
 	<div class="container-fluid">
 
@@ -77,18 +78,20 @@
 
 			
 		<security:authorize access="hasAuthority('CUSTOMER')">
-		 <li><a href="#">Cart</a></li>
+		 <li><a href="${contextRoot}/customer/viewCart">
+          <i class="glyphicon glyphicon-shopping-cart"></i> Cart
+        </a></li>
 		 </security:authorize>	
 			
 			<security:authorize access="isAuthenticated()">
 				<li style="font-size: large; font-weight: bold;" id="logout"><a
 					href="${contextRoot}/perform_logout"><span
-						class="glyphicon glyphicon-off"> Logout </span></a></li>
+						class="glyphicon glyphicon-off"> </span>Logout</a></li>
 			</security:authorize>
 		</ul>
 
 	</div>
 	</nav>
-
+</b>
 </body>
 </html>
