@@ -104,6 +104,8 @@ public class CustomerController {
 		User user =  userDAO.getUserByUsername(principal.getName());
 		Cart cart =  user.getCart();
 		
+		
+		
 		ModelAndView model = new ModelAndView("page");
 		
 		model.addObject("cartId", cart.getId());

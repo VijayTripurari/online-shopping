@@ -2,6 +2,8 @@ package net.vijay.onlineshopping.controller;
 
 import java.security.Principal;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import net.vijay.shoppingbackend.dao.CategoryDAO;
 import net.vijay.shoppingbackend.dao.UserDAO;
-import net.vijay.shoppingbackend.dto.*;
+import net.vijay.shoppingbackend.dto.User;
 
 @Controller
 public class PageController
@@ -21,6 +22,9 @@ public class PageController
 	private CategoryDAO categoryDAO;
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	HttpSession session;
 
 	@RequestMapping(value = {"/","/home","/index"})
 	public String index(Principal principal, ModelMap mv)
@@ -37,9 +41,13 @@ public class PageController
 		 System.out.println("entering");
 		 if(principal != null)
 		 {
+			 
 			 System.out.println("entering if");
 			 System.out.println(principal.getName());
 			User user =  userDAO.getUserByUsername(principal.getName());
+			session.setAttribute("cart", user.getCart());
+			session.setAttribute("user", user);
+			
 			System.out.println("user object::::::"+user);
 			System.out.println(user.getRole());
 			  if(user.getRole().equals("ADMIN")) {

@@ -91,8 +91,8 @@
 
 								<form:select path="role" id="role" class="form-control">
 
-									<form:option value="admin"></form:option>
-									<form:option value="customer"></form:option>
+									<form:option value="ADMIN"></form:option>
+									<form:option value="CUSTOMER"></form:option>
 
 								</form:select>
 								<div class="has-error">

@@ -1,5 +1,5 @@
 <div class="container">
-<div align="right"> <a href="/onlineshopping/customer/checkoutStart"  class="btn btn-lg btn-warning"><font color="black">CHECK OUT</font></a>
+<div align="right"> <a href="checkoutDetails"  class="btn btn-lg btn-warning"><font color="black">CHECK OUT</font></a>
 </div>
     
 	&emsp; &emsp;
@@ -31,6 +31,7 @@
   </thead>
   <tbody>
   
+     
     <c:if  test="${not empty cartStatus}">
        
         ${cartStatus} 

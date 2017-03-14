@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+	<!-- Executed when webFlow is triggered -->
+
+	<on-start>
+				<evaluate expression="checkouthandler.initFlow(currentUser.name)" result="flowScope.cart" />
+	</on-start>
+
+
+	<!-- if not specified the first view state is the starting state -->
+	<view-state id="start" view="checkoutDetails" model="flowScope.cart">
+		<transition on="submit" to="billingDetails" />
+	</view-state>
+
+
+	<view-state id="billingDetails" view="billingDetails" model="flowScope.cart">
+		<transition on="edit" to="start" />
+		<transition on="submit" to="bankDetails" />
+		
+	</view-state>
+
+	<view-state id="bankDetails" view="bankDetails" model="flowScope.cart">
+		<transition on="edit" to="start" />
+		<transition on="submit" to="validateBankDetails" />
+
+	</view-state>
+	<action-state id="validateBankDetails">
+		<evaluate expression="bankhandler.validateDetails(cart, messageContext)"></evaluate>
+
+		<transition on="error" to="start" />
+		<transition on="success" to="OrderSuccess" />
+
+
+	</action-state>
+	
+	<view-state id="OrderSuccess" view="OrderSuccess" model="flowScope.cart">
+		
+		<transition on="submit" to="toHome" />
+
+	</view-state>
+
+  
+
+	<end-state id="welcome" view="welcome" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:page.jsp" />
+	<end-state id="toException"
+		view="externalRedirect:contextRelative:exception.jsp" />
+
+	<!-- these events are available in every state -->
+	<global-transitions>
+		<transition on="home" to="toHome" />
+		<transition on="error" to="toException" />
+	</global-transitions>
+</flow>

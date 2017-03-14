@@ -1,10 +1,12 @@
 package net.vijay.shoppingbackend.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,8 +29,8 @@ public class Cart implements Serializable{
 	private User user;
 	
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="cart")
-	private List<CartItem> cartItems;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="cart", fetch = FetchType.EAGER)
+	private List<CartItem> cartItems = new ArrayList<>();
 		
 	private int cartItemsCount;
 

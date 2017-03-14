@@ -40,6 +40,8 @@ public class UserDAOImple implements UserDAO {
 	
 	public boolean addUser(User user) {
 		try {
+			
+			user.setPassword(user.getUserName()+"@123");
 		sessionFactory.getCurrentSession().persist(user);
 		 return true;
 		}

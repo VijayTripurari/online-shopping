@@ -57,7 +57,8 @@ public class User implements Serializable {
 	}
 
 	private String role;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user",fetch = FetchType.EAGER)
 	private Set<Address> addressList = new HashSet<Address>();
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
